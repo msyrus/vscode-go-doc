@@ -1,0 +1,57 @@
+{
+    "name": "go-doc",
+    "displayName": "Go Doc",
+    "description": "Show documentation of go symbols and packages",
+    "version": "0.0.1",
+    "publisher": "msyrus",
+    "keywords": [
+        "Go", "Doc", "Definition"
+    ],
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:go"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "go",
+                "extensions": [
+                    ".go"
+                ],
+                "aliases": [
+                    "Go"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "go-doc.get.def",
+                "title": "Go Doc: Get Definition"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/msyrus/vscode-go-doc"
+    }
+}
