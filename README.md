@@ -6,8 +6,8 @@ A Visual Studio Code extension for showing definition in Output and generating g
 
 The extension assumes that you have the following binaries are installed in your `PATH` or `GOROOT` or `GOPATH`:
 
-* gogetdoc
-* godoc
+* [gogetdoc](github.com/zmb3/gogetdoc)
+* [godoc](golang.org/x/tools/cmd/godoc)
 
 ## Features
 

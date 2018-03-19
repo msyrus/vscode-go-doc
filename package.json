@@ -2,10 +2,12 @@
     "name": "go-doc",
     "displayName": "Go Doc",
     "description": "Show documentation of go symbols and packages",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "msyrus",
     "keywords": [
-        "Go", "Doc", "Definition"
+        "Go",
+        "Doc",
+        "Definition"
     ],
     "engines": {
         "vscode": "^1.21.0"
