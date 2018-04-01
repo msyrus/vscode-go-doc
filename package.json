@@ -2,7 +2,7 @@
     "name": "go-doc",
     "displayName": "Go Doc",
     "description": "Show documentation of go symbols and packages",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "msyrus",
     "keywords": [
         "Go",
@@ -13,7 +13,7 @@
         "vscode": "^1.21.0"
     },
     "categories": [
-        "Languages"
+        "Other"
     ],
     "activationEvents": [
         "onLanguage:go"
