@@ -38,7 +38,10 @@ function getDefinition(doc: vscode.TextDocument, pos: vscode.Position): Promise<
 	let offset = Buffer.byteLength(doc.getText().substr(0, doc.offsetAt(pos)));
 
 	return new Promise<string>((resolve, reject) => {
-		let p = cp.execFile(gogetdoc, ['-json', '-modified', '-u', '-pos', doc.fileName + ':#' + offset.toString()], undefined, (err, stdout, stderr) => {
+		let opts = {
+			cwd: path.dirname(doc.fileName),	
+		};
+		let p = cp.execFile(gogetdoc, ['-json', '-modified', '-u', '-pos', doc.fileName + ':#' + offset.toString()], opts, (err, stdout, stderr) => {
 			try {
 				if (err && (<any>err).code === 'ENOENT') {
 					return reject('gogetdoc is missing');
@@ -63,6 +66,7 @@ function getDefinition(doc: vscode.TextDocument, pos: vscode.Position): Promise<
 				return reject(e);
 			}
 		});
-		p.stdin.end(getFileArchive(doc));
+		let arch = getFileArchive(doc);
+		p.stdin.end(arch);
 	});
 }
