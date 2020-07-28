@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
 
-export const envPath: string = process.env['PATH'] || (process.platform === 'win32' ? process.env['Path'] : null);
+export const envPath: string = process.env['PATH'] || (process.platform === 'win32' ? process.env['Path'] : '') || '';
 
 export function fileExists(filePath: string): boolean {
 	try {

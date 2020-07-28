@@ -1,5 +1,3 @@
-'use strict';
-
 import * as vscode from 'vscode';
 import * as cp  from 'child_process';
 import * as path from "path";
@@ -67,6 +65,6 @@ function getDefinition(doc: vscode.TextDocument, pos: vscode.Position): Promise<
 			}
 		});
 		let arch = getFileArchive(doc);
-		p.stdin.end(arch);
+		p.stdin?.end(arch);
 	});
 }
