@@ -2,7 +2,7 @@
     "name": "go-doc",
     "displayName": "Go Doc",
     "description": "Show documentation of go symbols and packages",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "msyrus",
     "keywords": [
         "Go",
