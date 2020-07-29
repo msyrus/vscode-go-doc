@@ -1,4 +1,5 @@
-import * as vscode from 'vscode';
+import { window, TextDocument, Position, ProgressLocation} from 'vscode';
+import * as cp from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -12,11 +13,11 @@ export function fileExists(filePath: string): boolean {
 	}
 }
 
-export function byteOffsetAt(doc: vscode.TextDocument, pos: vscode.Position): number {
+export function byteOffsetAt(doc: TextDocument, pos: Position): number {
 	return Buffer.byteLength(doc.getText().substr(0, doc.offsetAt(pos)));
 }
 
-export function getFileArchive(doc: vscode.TextDocument): string {
+export function getFileArchive(doc: TextDocument): string {
 	let text = doc.getText();
 	return doc.fileName + '\n' + Buffer.byteLength(text, 'utf8') + '\n' + text;
 }
@@ -90,4 +91,27 @@ export function getGoBinPath(): string {
 
 function correctBinName(name: string) {
 	return name && process.platform === 'win32'? name + '.exe': name;
+}
+
+export function installTools(): Promise<void> {
+	return new Promise<void>((resolve, reject) => {
+		window.showInformationMessage('Failed to find gogetdoc. Would you like to install it?', 'Yes', 'No')
+			.then(res => {
+				if (res !== 'Yes') {
+					return reject('gogetdoc is missing');
+				}
+
+				window.withProgress({ title: 'Installing gogetdoc', cancellable: false, location: ProgressLocation.Notification }, () => {
+					return new Promise<void>((resolve, reject) => {
+						cp.exec('go get github.com/zmb3/gogetdoc', (err) => {
+							if (err) {
+								return reject('Failed to install gogetdoc');
+							}
+							resolve();
+						});
+					})
+				})
+				.then(resolve, reject)
+			})
+	});
 }
