@@ -4,12 +4,9 @@ A Visual Studio Code extension for showing definition in Output and generating g
 
 ## Configuration
 
-The extension assumes that you have the following binaries are installed in your `PATH` or `GOROOT` or `GOPATH`:
+The extension requires `Go` insalled in path. It installs `gogetdoc` in `GOPATH` if gogetdoc is missing.
 
 * [gogetdoc](https://github.com/zmb3/gogetdoc)
-* [godoc](https://golang.org/x/tools/cmd/godoc)
-
-## Features
 
 ### Commands
 
