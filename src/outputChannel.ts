@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 
-let outputChannel = vscode.window.createOutputChannel('Go Doc');
+const outputChannel = vscode.window.createOutputChannel('Go Doc');
 
 export function showOutput(message: string, clear?: boolean, focus?: boolean) {
 	if (focus) {

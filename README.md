@@ -1,13 +1,18 @@
 # Visual Studio Code Go Doc
 
-A Visual Studio Code extension for showing definition in Output and generating go doc.
+A Visual Studio Code extension for showing Go symbol and package documentation in the Output panel.
 
 ## Configuration
 
-The extension requires `Go` insalled in path. It installs `gogetdoc` in `GOPATH` if gogetdoc is missing.
+The extension uses the registered Go hover provider in VS Code to retrieve documentation for the symbol under the cursor.
 
-* [gogetdoc](https://github.com/zmb3/gogetdoc)
+For the best results, install and enable:
+
+* [Go extension for VS Code](https://marketplace.visualstudio.com/items?itemName=golang.Go)
+* `gopls` in your Go workspace
+
+If hover-based documentation is unavailable, the command prints troubleshooting steps in the Output panel instead of failing with a low-level tool error.
 
 ### Commands
 
-* Go Doc: Get Definition - Prints the definition in output
+* Go Doc: Get Definition - Prints the selected symbol definition and documentation in the Output panel

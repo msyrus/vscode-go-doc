@@ -1,66 +1,65 @@
 {
-    "name": "go-doc",
-    "displayName": "Go Doc",
-    "description": "Show documentation of go symbols and packages",
-    "version": "1.0.1",
-    "publisher": "msyrus",
-    "keywords": [
-        "Go",
-        "Doc",
-        "Definition"
-    ],
-    "engines": {
-        "vscode": "^1.21.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onLanguage:go"
-    ],
-    "main": "./out/extension",
-    "contributes": {
-        "languages": [
-            {
-                "id": "go",
-                "extensions": [
-                    ".go"
-                ],
-                "aliases": [
-                    "Go"
-                ]
-            }
+  "name": "go-doc",
+  "displayName": "Go Doc",
+  "description": "Show Go symbol and package documentation in the Output panel",
+  "version": "1.1.0",
+  "publisher": "msyrus",
+  "extensionDependencies": [
+    "golang.go"
+  ],
+  "keywords": [
+    "go",
+    "golang",
+    "documentation",
+    "definition"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "go",
+        "extensions": [
+          ".go"
         ],
-        "commands": [
-            {
-                "command": "go-doc.get.def",
-                "title": "Go Doc: Get Definition"
-            }
+        "aliases": [
+          "Go"
         ]
-    },
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "lint": "eslint src --ext ts",
-        "watch": "tsc -watch -p ./",
-        "pretest": "npm run compile && npm run lint",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/glob": "^8.1.0",
-        "@types/mocha": "^10.0.0",
-        "@types/node": "^20.11.0",
-        "@types/vscode": "^1.21.0",
-        "@typescript-eslint/eslint-plugin": "^6.21.0",
-        "@typescript-eslint/parser": "^6.21.0",
-        "eslint": "^8.56.0",
-        "glob": "^10.3.10",
-        "mocha": "^10.2.0",
-        "typescript": "^5.3.3",
-        "vscode-test": "^1.3.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/msyrus/vscode-go-doc"
-    }
+      }
+    ],
+    "commands": [
+      {
+        "command": "go-doc.get.def",
+        "title": "Go Doc: Get Definition"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "validate": "npm run compile && npm run lint",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.19.39",
+    "@types/vscode": "^1.21.0",
+    "eslint": "^10.2.0",
+    "glob": "^13.0.6",
+    "mocha": "^11.7.5",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.58.2",
+    "vscode-test": "^1.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msyrus/vscode-go-doc"
+  }
 }
