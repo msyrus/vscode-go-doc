@@ -1,5 +1,7 @@
 # Visual Studio Code Go Doc
 
+![Go Doc logo](media/logo.png)
+
 A Visual Studio Code extension for showing Go symbol and package documentation in the Output panel.
 
 ## Configuration

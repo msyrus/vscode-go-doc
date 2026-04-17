@@ -2,7 +2,8 @@
   "name": "go-doc",
   "displayName": "Go Doc",
   "description": "Show Go symbol and package documentation in the Output panel",
-  "version": "1.1.0",
+  "icon": "media/logo.png",
+  "version": "1.1.1",
   "publisher": "msyrus",
   "extensionDependencies": [
     "golang.go"
